@@ -11,13 +11,20 @@
 <button @onclick="createTask">Save Task</button>
 
 
+<div class="pb-1 pt-5">
+    <h3>Tasks Done: ( @todos.Count(td => td.IsDone) )</h3>
+</div>
+<div class="pb-1 pt-1">
+    <h3>Tasks Remaining: ( @todos.Count(td => !td.IsDone) )</h3>
+</div>
+
 <h4 class="mt-4">To Do:</h4>
-<div class="todo-container d-flex flex-column mt-4">
+<div class="todo-container container d-flex flex-column mt-4 mw-25 mx-0">
 
     @foreach (var todo in todos)
     {
-        <div class="todo-item card d-flex flex-row"> 
-            <input class="p-4 m-4" type="checkbox" value=@todo.IsDone onclick="setDone" />
+        <div class="todo-item card d-flex flex-row mw-25"> 
+            <input class="p-4 m-4" type="checkbox" @bind="todo.IsDone" value=@todo.IsDone />
             <p class="card-title mt-auto mb-auto">@todo.Title</p> 
         </div>
 
@@ -30,24 +37,23 @@
     string task = "";
     private List<ToDoItem> todos = new();
 
-    public void setDone()
-    {
-        
-    }
+    // public void setDone()
+    // {
+    //     find associated todo and mark it as IsDone = true;
+
+    // }
 
     public void createTask()
     {
-        // var newTodo = new ToDoItem();
-        // newTodo.Title = task;
-        // todos.Add(newTodo);
-        // task = "";
-        var newTodo = new ToDoItem
-            {
-                Title = task
-            };
-        todos.Add(newTodo);
-        task = "";
-        // Console.WriteLine("PEWPIESSS");
+        if(task.Length > 0)
+        {
+            var newTodo = new ToDoItem
+                {
+                    Title = task
+                };
+            todos.Add(newTodo);
+            task = "";
+        }
     }
 
 
