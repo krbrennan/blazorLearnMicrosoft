@@ -1,0 +1,54 @@
+﻿@page "/todo"
+@rendermode InteractiveServer
+
+<h3>Trancendental To-Do Widget</h3>
+
+<hr />
+
+<p>Add something to the list:</p>
+
+<span>Task:  </span><input @bind="task" /> 
+<button @onclick="createTask">Save Task</button>
+
+
+<h4 class="mt-4">To Do:</h4>
+<div class="todo-container d-flex flex-column mt-4">
+
+    @foreach (var todo in todos)
+    {
+        <div class="todo-item card d-flex flex-row"> 
+            <input class="p-4 m-4" type="checkbox" value=@todo.IsDone onclick="setDone" />
+            <p class="card-title mt-auto mb-auto">@todo.Title</p> 
+        </div>
+
+    }
+
+</div>
+
+
+@code {
+    string task = "";
+    private List<ToDoItem> todos = new();
+
+    public void setDone()
+    {
+        
+    }
+
+    public void createTask()
+    {
+        // var newTodo = new ToDoItem();
+        // newTodo.Title = task;
+        // todos.Add(newTodo);
+        // task = "";
+        var newTodo = new ToDoItem
+            {
+                Title = task
+            };
+        todos.Add(newTodo);
+        task = "";
+        // Console.WriteLine("PEWPIESSS");
+    }
+
+
+}

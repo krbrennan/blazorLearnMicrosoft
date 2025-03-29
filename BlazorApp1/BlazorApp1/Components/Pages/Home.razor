@@ -1,7 +1,41 @@
 ﻿@page "/"
+@rendermode InteractiveServer
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1>Homepage Jawn</h1>
+<hr />
 
-Welcome to your new app.
+<Counter IncrementAmmount="10" />
+
+
+@* <div class="container-lg"> *@
+@*     <div class="card"> *@
+@*         <div class="card-title"> *@
+@*             <h2>Counter</h2> *@
+@*         </div> *@
+@*         <div> *@
+@*             <button @onclick="Clicked">Click Me Fool</button> *@
+@*             <div> *@
+@*                 <h3>@counter</h3> *@
+@*             </div> *@
+@*         </div> *@
+@*     </div> *@
+
+
+@* </div> *@
+
+
+
+@* @code { *@
+@*     private int counter = 0; *@
+
+@*     [Parameter] *@
+@*     public int IncrementCount { get; set; } = 1; *@
+
+@*     private void Clicked() *@
+@*     { *@
+@*         counter += IncrementCount; *@
+@*     } *@
+
+@* } *@
